@@ -9,11 +9,11 @@ export const getLinks = createAsyncThunk(
       thunkAPI.dispatch(setLoader(true));
 
       const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_BASE_URL}/getLink`,
+        `${process.env.REACT_APP_SERVER_BASE_URL}/api/getLink`,
         body
       );
 
-      console.log(response.data);
+      // console.log(response.data);
       return response.data.result;
     } catch (e) {
       return Promise.reject(e);
