@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 export const getLinks = createAsyncThunk(
   "/getLinks",
   async (body, thunkAPI) => {
@@ -8,7 +9,7 @@ export const getLinks = createAsyncThunk(
       thunkAPI.dispatch(setLoader(true));
 
       const response = await axios.post(
-        "http://localhost:8000/api/getLink",
+        `${process.env.REACT_APP_SERVER_BASE_URL}/getLink`,
         body
       );
 
